@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 class Counter extends Component {
   state = {
     number: 1,
-    display: 'Component-visible'
+    display: true
   }
 
   onChange = (e) => {
@@ -33,6 +33,7 @@ class Counter extends Component {
 
 
   render() {
+    const helper = this.state.display?'compVisible':''
     return (
       <div>
         <h1>숫자 카운팅</h1>
@@ -45,21 +46,22 @@ class Counter extends Component {
         <CalcButton clickEvent={this.handleIncrease} symbol="+">+</CalcButton>
         <CalcButton clickEvent={this.handleDecrease} symbol="-">-</CalcButton>
         <br />
-        <span id="helper" className={cx('compVisible')}>값 {this.state.number} 초과할 수 없습니다.</span>
+        <span id="helper" className={cx(helper)}>값 {this.state.number} 초과할 수 없습니다.</span>
       </div>
     )
   }
   shouldComponentUpdate(nextProps, nextState) {
-    console.log(nextProps, nextState);
+    //console.log(nextProps, nextState);
     var helper = document.getElementById("helper");
     // 0이 false라서 10혀서 추가
     if(nextState.number || nextState.number == 0) {
       var input = document.getElementById("num");
       input.value = nextState.number;
-      if(nextState.number < 5) {
-      } else {
+      nextState.display = true;
+      if(nextState.number > 4) {
         nextState.number = 5;
         input.value = 5;
+        nextState.display = false;
       }
     }
     return true;

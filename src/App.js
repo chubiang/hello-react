@@ -41,20 +41,31 @@ class App extends Component {
           >
             Learn React
           </a>
-        </header>*/}
-      </div>
-      <div style={style}>
-        {
-          (() => {
-            if (value === 1) return ( <div>하나</div> );
-            if (value === 2) return ( <div>둘</div> );
-            if (value === 3) return ( <div>셋</div> );
-          })()
+        </header>*/
         }
+        {
+          /*
+          <div style={style}>
+          {
+          (() => {
+          if (value === 1) return ( <div>하나</div> );
+          if (value === 2) return ( <div>둘</div> );
+          if (value === 3) return ( <div>셋</div> );
+          })()
+          }
+          </div>
+          */
+        }
+        <header>
+        </header>
+        <main>
+        </main>
+        <footer>
+        </footer>
       </div>
       <CalcButton btnStyle={btnStyle} symbol="+">+</CalcButton>
       <CalcButton btnStyle={btnStyle} symbol="-">-</CalcButton>
-      <CalcButton >x</CalcButton>
+      <CalcButton>x</CalcButton>
       <MyName name='곰찌'></MyName>
       <Counter/>
       </Fragment>
